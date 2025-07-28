@@ -1,0 +1,94 @@
+:host {
+  display: block;
+  padding: 2rem;
+  background-color: #f4f7f9;
+}
+
+// ======================================================
+// ESTILOS GENERALES Y DE ESCRITORIO (Desktop)
+// ======================================================
+
+.quote-card { max-width: 1000px; margin: auto; }
+.quote-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; background-color: #f8f9fa; }
+.quote-title { text-align: right; h1 { margin: 0; font-size: 1.8rem; } span { font-size: 1rem; color: #6c757d; } }
+.logo-image {
+  height: 60px; /* Define la altura del logo */
+  width: auto;  /* El ancho se ajustará automáticamente */
+  max-width: 150px; /* Evita que sea demasiado grande */
+}
+.quote-body { padding: 1.5rem; }
+.client-info { display: flex; gap: 1.5rem; margin-bottom: 2rem; .client-field { flex: 2; } .date-field { flex: 1; } }
+.items-table { width: 100%; }
+.add-item-btn { margin-top: 1rem; }
+.total-cell { font-weight: 500; }
+.summary { display: flex; flex-direction: column; align-items: flex-end; margin-top: 2rem; width: 40%; margin-left: auto;
+  .summary-item { display: flex; justify-content: space-between; width: 100%; padding: 0.5rem 0; font-size: 1.1rem;
+    &.total { font-size: 1.5rem; font-weight: bold; color: #3f51b5; border-top: 2px solid #e0e0e0; margin-top: 0.5rem; padding-top: 0.5rem; }
+  }
+}
+.export-btn { padding: 0.75rem 1.5rem; font-size: 1rem; }
+
+// Por defecto, la vista móvil está oculta
+.mobile-items-list {
+  display: none;
+}
+
+
+// ======================================================
+// ESTILOS RESPONSIVE (Móvil)
+// ======================================================
+@media (max-width: 768px) {
+  :host { padding: 0; }
+  .quote-card { box-shadow: none; border-radius: 0; }
+  .quote-body { padding: 1rem; }
+  .client-info { flex-direction: column; gap: 1rem; }
+  .summary { width: 100%; }
+
+  // 1. Ocultamos la tabla de escritorio en pantallas pequeñas
+  .desktop-table {
+    display: none;
+  }
+
+  // 2. Mostramos la nueva lista de tarjetas para móviles
+  .mobile-items-list {
+    display: block; // Hacemos visible el contenedor de las tarjetas
+    margin-top: 1.5rem;
+  }
+
+  // 3. Estilos para cada tarjeta de item individual
+  .item-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+
+    .item-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      .item-number {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #3f51b5;
+      }
+    }
+
+    .inputs-row {
+      display: flex;
+      gap: 1rem; // Espacio entre Cantidad y P. Unitario
+    }
+
+    .w-100 {
+      width: 100%;
+    }
+
+    .item-total {
+      text-align: right;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed #ccc;
+    }
+  }
+}
